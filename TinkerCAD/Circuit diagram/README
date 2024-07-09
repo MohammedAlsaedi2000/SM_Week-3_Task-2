@@ -1,1 +1,3 @@
 README
+When this dot enters the PIR Region, it gets detected by that sensor
+and Arduino/esp32 receive this signal then immediately send different signals to the Buzzer and LED to Trigger them which make the whole system "ALARM"
