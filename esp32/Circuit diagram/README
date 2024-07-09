@@ -1,1 +1,6 @@
+Here is the wiring explanation:
 
+
+The PIR Motion Sensor Vcc pin is connected to 3.3V, GND pin to GND and OUT pin to GPIO 14.
+Buzzer's positive terminal to GPIO 27 and negative terminal to GND
+LED's anode to GPIO 26 through a 220Ω resistor and cathode to GND. 
