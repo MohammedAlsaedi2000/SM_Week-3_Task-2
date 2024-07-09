@@ -1,1 +1,43 @@
 
+const int pirPin = 2;
+const int buzzerPin = 9;
+const int ledPin = 8;
+
+bool motionDetected = false;
+
+void setup() {
+  // Set up the pins
+  pinMode(pirPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
+  
+  // Start with everything off
+  digitalWrite(buzzerPin, LOW);
+  digitalWrite(ledPin, LOW);
+}
+
+void loop() {
+  // Read the PIR sensor
+  motionDetected = digitalRead(pirPin);
+  
+  if (motionDetected) {
+    for (int i = 0; i < 10; i++) {
+      // Activate the buzzer with alternating tones
+      tone(buzzerPin, 1000);  // 1000 Hz tone
+      digitalWrite(ledPin, HIGH);  // LED on
+      delay(100);
+      noTone(buzzerPin);
+      digitalWrite(ledPin, LOW);  // LED off
+      delay(100);
+
+      tone(buzzerPin, 1500);  // 1500 Hz tone
+      digitalWrite(ledPin, HIGH);  // LED on
+      delay(100);
+      noTone(buzzerPin);
+      digitalWrite(ledPin, LOW);  // LED off
+      delay(100);
+    }
+  }
+  
+  delay(100);  // Small delay to prevent bouncing
+}
